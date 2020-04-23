@@ -1,0 +1,402 @@
+body {
+  font: 1.2rem/1.5 Arial, Helvetica, sans-serif;
+  padding: 0;
+  margin: 0;
+  background-color: #222;
+  color: antiquewhite;
+  text-shadow: 1px 1px#000;
+}
+
+/* Global */
+.contain {
+  width: 80vw;
+  margin: auto;
+  overflow: hidden;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+.dark {
+  padding: 15px;
+  background: #444;
+  color: #eee;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+/* Header **/
+header {
+  background: #222;
+  color: #ffffff;
+  padding-top: 30px;
+  min-height: 70px;
+  border-bottom: green 3px solid;
+}
+
+header a {
+  color: antiquewhite;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 1rem;
+}
+
+header li {
+  display: inline;
+  padding: 0 20px 0 20px;
+}
+
+header #branding {
+  float: left;
+}
+
+header #branding h1 {
+  margin: 0;
+}
+
+header nav {
+  float: right;
+  margin-top: 10px;
+}
+
+header .highlight,
+header .current a {
+  color: green;
+  font-weight: bold;
+}
+
+header a:hover {
+  color: greenyellow;
+  font-weight: bold;
+}
+
+/* Showcase */
+#showcase {
+  min-height: 75vh;
+  background: linear-gradient(45deg, #090, #070);
+  background-size: cover;
+  text-align: left;
+  color: #ffffff;
+  display: flex;
+}
+
+#showcase h1 {
+  font-size: 4.5rem;
+  margin-bottom: 10px;
+  margin-left: 50px;
+}
+
+#showcase p {
+  font-size: 1.3rem;
+  margin-left: 50px;
+}
+
+#main {
+  background: linear-gradient(45deg, #0a0, #070);
+}
+
+/* Sidebar */
+aside#sidebar {
+  float: right;
+  width: 30%;
+  margin-top: 10px;
+}
+
+aside#sidebar .quote input,
+aside#sidebar .quote textarea {
+  width: 90%;
+  padding: 5px;
+}
+
+/* Main-col */
+article#main-col {
+  float: left;
+  width: 65%;
+}
+
+footer {
+  padding: 5px;
+  margin-top: 15px;
+  color: #ffffff;
+  background-color: green;
+  text-align: center;
+}
+
+/*Widget*/
+.container {
+  margin: 20px;
+  max-width: 40%;
+  width: 1000px;
+  background-color: white;
+  box-shadow: 0 5px 10px black;
+  border-radius: 5px;
+  text-shadow: 0 0 white;
+  display: grid;
+}
+
+.content {
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.header {
+  background-color: #222;
+  height: 15vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.icon-container {
+  position: relative;
+  top: 70px;
+  padding: 20px;
+  background-color: white;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.general-information {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  color: #333;
+}
+
+.status {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.location {
+  font-size: 2rem;
+  font-weight: normal;
+  margin-top: 10px;
+}
+
+.detail-section {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+
+.detail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-basis: 0;
+  flex-grow: 1;
+  padding: 20px;
+}
+
+.detail.bordered {
+  border-left: 1px solid #777;
+  border-right: 1px solid #777;
+}
+
+.detail .title {
+  font-size: 2rem;
+  flex-grow: 1;
+  font-weight: bold;
+  color: #555;
+}
+
+.detail .value {
+  font-size: 2rem;
+  margin-top: 20px;
+  color: #777;
+}
+
+.city-search-container {
+  display: flex;
+  justify-content: center;
+}
+
+.city-search {
+  margin-top: 30px;
+  font-size: 1.5rem;
+  outline: none;
+  border: 1px solid #777;
+  border-radius: 5px;
+  padding: 10px 15px;
+  width: 100%;
+}
+
+.pac-item {
+  font-size: 1.5rem;
+  padding: 10px 10px;
+}
+
+.pac-icon {
+  display: none;
+}
+
+.pac-item-query {
+  font-size: 1.5rem;
+  padding-right: 14px;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  header #branding,
+  header nav,
+  header nav li,
+  article#main-col,
+  aside#sidebar {
+    float: none;
+    text-align: center;
+    width: 100%;
+  }
+
+  header {
+    padding-bottom: 15px;
+    padding-top: 15px;
+  }
+
+  header #branding {
+    font-size: 1rem;
+  }
+
+  #showcase {
+    text-align: center;
+    flex-direction: column;
+  }
+
+  #showcase h1 {
+    margin-top: 20px;
+    margin-left: 0;
+    font-size: 2rem;
+  }
+
+  #showcase p {
+    margin-left: 0;
+  }
+
+  footer {
+    margin-top: 5px;
+    padding: 0.3vh;
+  }
+
+  /*Widget*/
+  .container {
+    margin-left: 9vw;
+    max-width: 85%;
+    width: 1000px;
+    background-color: white;
+    box-shadow: 0 5px 10px black;
+    border-radius: 5px;
+    text-shadow: 0 0 white;
+  }
+
+  .content {
+    padding: 20px;
+    margin-top: 20px;
+  }
+
+  .header {
+    background-color: #222;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+  }
+
+  .icon-container {
+    position: relative;
+    top: 50px;
+    padding: 10px;
+    background-color: white;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+  }
+
+  .general-information {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    color: #333;
+  }
+
+  .status {
+    font-size: 2rem;
+    font-weight: bold;
+  }
+
+  .location {
+    font-size: 1.5rem;
+    font-weight: normal;
+    margin-top: 10px;
+  }
+
+  .detail-section {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+
+  .detail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-basis: 0;
+    flex-grow: 1;
+    padding: 10px;
+  }
+
+  .detail.bordered {
+    border-left: 1px solid #777;
+    border-right: 1px solid #777;
+  }
+
+  .detail .title {
+    font-size: 1rem;
+    flex-grow: 1;
+    font-weight: bold;
+    color: #555;
+  }
+
+  .detail .value {
+    font-size: 1rem;
+    margin-top: 10px;
+    color: #777;
+  }
+
+  .city-search-container {
+    display: flex;
+    justify-content: center;
+  }
+
+  .city-search {
+    margin-top: 20px;
+    font-size: 1rem;
+    outline: none;
+    border: 1px solid #777;
+    border-radius: 1px;
+    padding: 2px 3px;
+    width: 100%;
+  }
+
+  .pac-item {
+    font-size: 0.5rem;
+    padding: 2px 2px;
+  }
+
+  .pac-icon {
+    display: none;
+  }
+
+  .pac-item-query {
+    font-size: 0.5rem;
+    padding-right: 2px;
+  }
+}
