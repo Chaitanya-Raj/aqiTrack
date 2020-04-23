@@ -21,7 +21,7 @@ ul {
 
 .dark {
   padding: 15px;
-  background: #444;
+  background: #333;
   color: #eee;
   margin-top: 10px;
   margin-bottom: 10px;
@@ -91,6 +91,7 @@ header a:hover {
 #showcase p {
   font-size: 1.3rem;
   margin-left: 50px;
+  margin-bottom: 200px;
 }
 
 #main {
@@ -129,7 +130,7 @@ footer {
   margin: 20px;
   max-width: 40%;
   width: 1000px;
-  background-color: white;
+  background-color: #ddd;
   box-shadow: 0 5px 10px black;
   border-radius: 5px;
   text-shadow: 0 0 white;
@@ -139,6 +140,7 @@ footer {
 .content {
   padding: 20px;
   margin-top: 20px;
+  background-color: #ddd;
 }
 
 .header {
@@ -155,7 +157,7 @@ footer {
   position: relative;
   top: 70px;
   padding: 20px;
-  background-color: white;
+  background-color: #ddd;
   width: 100px;
   height: 100px;
   border-radius: 50%;
@@ -242,6 +244,19 @@ footer {
   padding-right: 14px;
 }
 
+#forms {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(45deg, #070, #050);
+}
+
+.form {
+  border: solid 1px antiquewhite;
+  padding: 20px;
+  margin: 30px;
+}
+
 /* Media Queries */
 @media (max-width: 768px) {
   header #branding,
@@ -276,11 +291,12 @@ footer {
 
   #showcase p {
     margin-left: 0;
+    margin-bottom: 0;
   }
 
   footer {
     margin-top: 5px;
-    padding: 0.3vh;
+    padding: 2px;
   }
 
   /*Widget*/
@@ -288,7 +304,6 @@ footer {
     margin-left: 9vw;
     max-width: 85%;
     width: 1000px;
-    background-color: white;
     box-shadow: 0 5px 10px black;
     border-radius: 5px;
     text-shadow: 0 0 white;
@@ -296,7 +311,8 @@ footer {
 
   .content {
     padding: 20px;
-    margin-top: 20px;
+    margin-top: 30px;
+    padding-top: 20px;
   }
 
   .header {
@@ -313,7 +329,6 @@ footer {
     position: relative;
     top: 50px;
     padding: 10px;
-    background-color: white;
     width: 100px;
     height: 100px;
     border-radius: 50%;
@@ -398,5 +413,9 @@ footer {
   .pac-item-query {
     font-size: 0.5rem;
     padding-right: 2px;
+  }
+
+  #forms {
+    flex-direction: column-reverse;
   }
 }

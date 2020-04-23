@@ -1,40 +1,58 @@
-const searchElement = document.querySelector('[data-city-search]')
-const searchBox = new google.maps.places.SearchBox(searchElement)
-searchBox.addListener('places_changed', () => {
-  const place = searchBox.getPlaces()[0]
-  if (place == null) return
-  const latitude = place.geometry.location.lat()
-  const longitude = place.geometry.location.lng()
-  fetch('/weather', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'Accept': 'application/json'
-    },
-    body: JSON.stringify({
-      latitude: latitude,
-      longitude: longitude
-    })
-  }).then(res => res.json()).then(data => {
-    setWeatherData(data, place.formatted_address)
+const API_KEY = "224b91f3-d732-462b-8d01-6cf8715b7b19";
+
+const icon = new Skycons({ color: "#222" });
+const locationElement = document.querySelector("[data-location]");
+const statusElement = document.querySelector("[data-status]");
+const temperatureElement = document.querySelector("[data-temperature]");
+const humidityElement = document.querySelector("[data-humidity]");
+const aqiElement = document.querySelector("[data-aqi]");
+icon.set("icon", "cloudy");
+icon.play();
+
+var requestOptions = {
+  method: "GET",
+  redirect: "follow",
+};
+
+fetch(
+  `https://api.airvisual.com/v2/nearest_city?key=${API_KEY}`,
+  requestOptions
+)
+  .then((response) => response.text())
+  .then((result) => {
+    console.log(JSON.parse(result));
+    setWeatherData(JSON.parse(result));
   })
-})
+  .catch((error) => console.log("error", error));
 
-const icon = new Skycons({ color: '#222' })
-const locationElement = document.querySelector('[data-location]')
-const statusElement = document.querySelector('[data-status]')
-const temperatureElement = document.querySelector('[data-temperature]')
-const precipitationElement = document.querySelector('[data-precipitation]')
-const windElement = document.querySelector('[data-wind]')
-icon.set('icon', 'clear-day')
-icon.play()
-
-function setWeatherData(data, place) {
-  locationElement.textContent = place
-  statusElement.textContent = data.summary
-  temperatureElement.textContent = data.temperature
-  precipitationElement.textContent = `${data.precipProbability * 100}%`
-  windElement.textContent = data.windSpeed
-  icon.set('icon', data.icon)
-  icon.play()
+function setWeatherData(data) {
+  locationElement.textContent = `${data.data.city}, ${data.data.state}, ${data.data.country}`;
+  let status = function () {
+    if (data.data.current.pollution.aqius <= 50) return "Good";
+    else if (
+      data.data.current.pollution.aqius > 50 &&
+      data.data.current.pollution.aqius <= 100
+    )
+      return "Satisfactory";
+    else if (
+      data.data.current.pollution.aqius > 100 &&
+      data.data.current.pollution.aqius <= 200
+    )
+      return "Moderately Polluted";
+    else if (
+      data.data.current.pollution.aqius > 200 &&
+      data.data.current.pollution.aqius <= 300
+    )
+      return "Poor";
+    else if (
+      data.data.current.pollution.aqius > 300 &&
+      data.data.current.pollution.aqius <= 400
+    )
+      return "Very Poor";
+    else if (data.data.current.pollution.aqius > 400) return "Severe";
+  };
+  statusElement.textContent = status();
+  temperatureElement.textContent = `${data.data.current.weather.tp}°C`;
+  humidityElement.textContent = `${data.data.current.weather.hu}%`;
+  aqiElement.textContent = data.data.current.pollution.aqius;
 }
