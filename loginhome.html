@@ -10,8 +10,9 @@
       src="https://cdnjs.cloudflare.com/ajax/libs/skycons/1396634940/skycons.min.js"
     ></script>
     <script defer src="script.js"></script>
-    <title>aqiTrack | Home</title>
+    <title>aqiTrack | My Feed</title>
   </head>
+
   <body>
     <header>
       <div class="contain">
@@ -20,21 +21,19 @@
         </div>
         <nav>
           <ul>
-            <li class="current"><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="signin.html">Log In</a></li>
+            <li class="current"><a href="loginhome.html">My Feed</a></li>
+            <li><a href="index.html">Log Out</a></li>
           </ul>
         </nav>
       </div>
     </header>
     <main>
-      <section id="showcase">
-        <div class="contain">
-          <h1>Pollution Tracker</h1>
-          <p>
-            A neat webapp that shows the AQI (Air Quality Index) of your desired
-            location.
-          </p>
+      <div id="feed">
+        <div class="welcome">
+          <h1>Good Morning!</h1>
+          <h2>
+            Prateek
+          </h2>
         </div>
         <div class="container">
           <div class="header">
@@ -63,17 +62,29 @@
                 <div class="value" data-humidity>TBH</div>
               </div>
             </div>
-            <div class="city-search-container">
-              <input
-                type="text"
-                class="city-search"
-                data-city-search
-                placeholder="Enter Location"
-              />
-            </div>
           </div>
         </div>
-      </section>
+        <div id="precaution" class="dark">
+          As the AQI today is above 50, it may cause your asthma to worsen. It
+          would be better if you kept your inhaler with you if you plan to
+          travel today.
+        </div>
+        <div class="product">
+          <h3>Air Purifier</h3>
+          <img src="purifier.jpg" alt="air purifier" /><button>
+            Learn More
+          </button>
+        </div>
+        <div id="advice" class="dark">
+          It is highly advisable to wear a mask whenever you're outdoors. If you
+          have any senior citizens at home, it is recommended that you have an
+          air purifier at home.
+        </div>
+        <div class="product">
+          <h3>Mask</h3>
+          <img src="mask.jpg" alt="mask" /><button>Learn More</button>
+        </div>
+      </div>
     </main>
     <footer>
       <p>Chaitanya Raj, Copyright &copy; 2020</p>
