@@ -74,7 +74,7 @@ header a:hover {
 
 /* Showcase */
 #showcase {
-  min-height: 75vh;
+  min-height: 85vh;
   background: linear-gradient(45deg, #090, #070);
   background-size: cover;
   text-align: left;
@@ -147,14 +147,6 @@ aside#sidebar .quote textarea {
 article#main-col {
   float: left;
   width: 65%;
-}
-
-footer {
-  padding: 5px;
-  margin-top: 15px;
-  color: #ffffff;
-  background-color: green;
-  text-align: center;
 }
 
 /*Widget*/
@@ -372,11 +364,6 @@ button {
   #showcase p {
     margin-left: 0;
     margin-bottom: 0;
-  }
-
-  footer {
-    margin-top: 5px;
-    padding: 2px;
   }
 
   /*Widget*/
