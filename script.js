@@ -14,13 +14,15 @@ var requestOptions = {
   redirect: "follow",
 };
 
+const advice = document.getElementById("advice");
+const precaution = document.getElementById("precaution");
+
 fetch(
   `https://api.airvisual.com/v2/nearest_city?key=${API_KEY}`,
   requestOptions
 )
   .then((response) => response.text())
   .then((result) => {
-    console.log(JSON.parse(result));
     setWeatherData(JSON.parse(result));
   })
   .catch((error) => console.log("error", error));
@@ -55,4 +57,15 @@ function setWeatherData(data) {
   temperatureElement.textContent = `${data.data.current.weather.tp}°C`;
   humidityElement.textContent = `${data.data.current.weather.hu}%`;
   aqiElement.textContent = data.data.current.pollution.aqius;
+
+  if (data.data.current.pollution.aqius <= 50) {
+    advice.innerText = "Stay away from dust or smoke.";
+    precaution.innerText =
+      "The AQI level is within safe limits. No significant risk to you health today.";
+  } else if (data.data.current.pollution.aqius > 50) {
+    advice.innerText =
+      "It is highly advisable to wear a mask whenever you're outdoors. If you have any senior citizens at home, it is recommended that you have an air purifier at home.";
+    precaution.innerText =
+      "As the AQI today is above 50, it may cause your asthma to worsen. It would be better if you kept your inhaler with you if you plan to travel today.";
+  }
 }
