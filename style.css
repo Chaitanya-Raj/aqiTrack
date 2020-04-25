@@ -111,7 +111,9 @@ header a:hover {
   text-align: left;
   color: #ffffff;
   display: flex;
-  flex-flow: wrap;
+  flex-flow: row wrap;
+  flex-basis: 50%;
+  position: relative;
 }
 
 #feed h1 {
@@ -128,6 +130,7 @@ header a:hover {
 
 .welcome {
   margin: auto;
+  flex: 1;
 }
 
 /* Sidebar */
@@ -329,6 +332,21 @@ button {
   margin-top: 10px;
   margin-bottom: 10px;
 }
+
+.product {
+  margin: auto;
+
+  border: black 1px solid;
+}
+
+#advice {
+  width: 100%;
+}
+
+#precaution {
+  width: 100%;
+}
+
 /* Media Queries */
 @media (max-width: 768px) {
   header #branding,
@@ -509,5 +527,13 @@ button {
 
   .product {
     border: black 1px solid;
+  }
+
+  #advice {
+    width: auto;
+  }
+
+  #precaution {
+    width: auto;
   }
 }
